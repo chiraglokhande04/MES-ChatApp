@@ -9,15 +9,17 @@ const server = http.createServer(app)
 const PORT = process.env.PORT || 3000
 
 const adminRouter = require("./routes/adminRouter")
+const userRouter = require("./routes/userRouter")
 const cors = require("cors");
 
-app.use('/admin',adminRouter);
+app.use('/api/admin',adminRouter);
+app.use('/api/user',userRouter);
 
 const startServer = async () => {
     try {
       await connectDB();
-      server.listen(3000, () => { // Use server instead of app.listen
-        console.log('Server is running on port 3000');
+      server.listen(PORT, () => { // Use server instead of app.listen
+        console.log(`Server is running on port ${PORT}`);
       });
   
     } catch (err) {

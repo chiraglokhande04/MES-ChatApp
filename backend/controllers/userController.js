@@ -178,12 +178,23 @@ const getUserProfile = async (req, res) => {
   };
   
   // Update user profile
- const updateUserProfile = async (req, res) => {
+  const updateUserProfile = async (req, res) => {
     try {
-      const { name, bio, profilePic, status } = req.body;
+      const { name, bio, status } = req.body;
+  
+      // If a file is uploaded, get the Cloudinary URL from multer middleware
+      const profilePic = req.file ? req.file.path : undefined;
+  
+      // Build update object dynamically
+      const updateData = {};
+      if (name) updateData.name = name;
+      if (bio) updateData.bio = bio;
+      if (status) updateData.status = status;
+      if (profilePic) updateData.profilePic = profilePic;
+  
       const updated = await User.findByIdAndUpdate(
         req.params.id,
-        { name, bio, profilePic, status },
+        updateData,
         { new: true }
       ).select('-password -verificationToken');
   
