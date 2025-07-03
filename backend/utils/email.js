@@ -33,11 +33,11 @@ const welcomeEmailTemplate = (name) => {
             <p>If you face any issues, feel free to reply to this email or contact us directly at <a href="mailto:support@yourcompany.com">support@yourcompany.com</a>.</p>
             <p>Welcome once again and we look forward to great times ahead!</p>
             
-            <p>Best regards, <br/>The Team at [Your Company Name]</p>
+            <p>Best regards, <br/>The Team at Madhu Engineering Services</p>
           </div>
           <div style="background-color: #f1f1f1; text-align: center; padding: 15px; font-size: 12px; color: #777;">
             <p>Please do not share your login credentials with anyone.</p>
-            <p>&copy; ${new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+            <p>&copy; ${new Date().getFullYear()} Madhu Engineering Services. All rights reserved.</p>
           </div>
         </div>
       </div>
